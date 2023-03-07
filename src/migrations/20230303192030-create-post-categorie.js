@@ -6,24 +6,28 @@ module.exports = {
       post_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        field: 'post_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+        primaryKey: true,
         references: {
-          model: 'post_id',
+          model: 'blog_posts',
           key: 'id',
         }
       },
       category_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        field: 'category_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+        primaryKey: true,
         references: {
           model: 'categories',
           key: 'id',
-        }
-      }
-    })
+        },
+      },
+    });
   },
 
   down: async (queryInterface, Sequelize) => {
