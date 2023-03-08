@@ -1,6 +1,6 @@
 const { userService } = require('../services');
 
-const newUser = async (req, res, next) => {
+module.exports = async (req, res, next) => {
     const { displayName, email, password } = req.body; 
     const regex = /\S+@\S+\.\S+/;
 
@@ -22,8 +22,4 @@ const newUser = async (req, res, next) => {
         .json({ message: '"password" length must be at least 6 characters long' });
     }  
     next();
-  };
-  
-  module.exports = {
-    newUser,
-  };
+  };  

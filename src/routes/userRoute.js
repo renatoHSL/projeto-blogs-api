@@ -1,11 +1,11 @@
 const express = require('express');
+
 const { userController } = require('../controllers');
-const { newUser } = require('../middlewares/newUser');
-const { tokenVal } = require('../middlewares/tokenValidation');
+const { newUser, tokenValidation } = require('../middlewares');
 
 const routerUser = express.Router();
 
 routerUser.post('/', newUser, userController.insertNewUser);
-routerUser.get('/', tokenVal, userController.getUsers);
+routerUser.get('/', tokenValidation, userController.getUsers);
 
 module.exports = routerUser;

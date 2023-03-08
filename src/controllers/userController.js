@@ -15,9 +15,13 @@ const insertNewUser = async (req, res) => {
 };
 
 const getUsers = async (_req, res) => {
-    const allUsers = await userService.getUsers();
-  
-    return res.status(200).json(allUsers);
+    try {
+        const allUsers = await userService.getUsers();
+      
+        return res.status(200).json(allUsers);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
   };
 
 module.exports = { 
