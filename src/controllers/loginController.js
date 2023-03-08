@@ -4,7 +4,7 @@ const { createToken } = require('../auth/validateJWT');
 
 const isLoginValid = (email, password) => email && password;
 
-const login = async (req, res) => {
+module.exports = async (req, res) => {
     try {
         const { email, password } = req.body;
         if (!isLoginValid(email, password)) {
@@ -23,5 +23,3 @@ const login = async (req, res) => {
         return res.status(500).json({ message: error.message });
     }
 };
-
-module.exports = login;
