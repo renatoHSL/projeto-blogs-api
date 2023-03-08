@@ -1,10 +1,10 @@
 const express = require('express');
-const { validateToken } = require('../auth/validateJWT');
+const { tokenValidation } = require('../middlewares');
 const { categoryController } = require('../controllers');
 
-console.log(categoryController);
+// console.log(categoryController);
 const routeCategory = express.Router();
 
-routeCategory.post('/', validateToken, categoryController.createCategory);
+routeCategory.post('/', tokenValidation, categoryController.createCategory);
 
 module.exports = routeCategory;
