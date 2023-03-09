@@ -20,6 +20,6 @@ app.use(express.json());
 
 app.use('/login', routeLogin);
 app.use('/user', routeUser);
-app.use('/category', routeCategory);
+app.use('/categories', routeCategory);
 
 module.exports = app;
