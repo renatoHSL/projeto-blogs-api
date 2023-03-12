@@ -1,5 +1,5 @@
 const express = require('express');
-const { routeLogin, routeUser, routeCategory } = require('./routes');
+const { routeLogin, routeUser, routeCategory, routePost } = require('./routes');
 // const { newUser } = require('./middlewares/newUser');
 
 // ...
@@ -21,5 +21,6 @@ app.use(express.json());
 app.use('/login', routeLogin);
 app.use('/user', routeUser);
 app.use('/categories', routeCategory);
+app.use('/post', routePost);
 
 module.exports = app;
